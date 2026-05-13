@@ -1,0 +1,48 @@
+<div class="login">
+    <div class="lado">
+        <div class="blanco">
+            <img src="fotos/inicio/collage-viajes.png" alt="Destinos" class="img-collage">
+        </div>
+    </div>
+
+    <div class="form-side">
+        <div class="auth-box">
+            <div class="logo">
+                <img src="fotos/inicio/logo.png" alt="Logo TravelGo" class="logo-img">
+            </div>
+
+            <form (submit)="$event.preventDefault()">
+                <input 
+                    type="text" 
+                    name="username"
+                    [(ngModel)]="datosLogin.username"
+                    placeholder="Usuario" 
+                    class="login-input">
+                
+                <input 
+                    type="password" 
+                    name="password"
+                    [(ngModel)]="datosLogin.password"
+                    placeholder="Contraseña" 
+                    class="login-input">
+    
+                <button type="button" (click)="entrar()" class="entrada">Entrar</button>
+            </form>
+
+            <br>
+            <p>------------------------------- o ------------------------------</p>
+
+            <button class="facebook">Inicia sesión con Facebook</button>
+
+            <br><br>
+
+            <a href="#" class="olvido">¿Has olvidado la contraseña?</a>
+            
+            <br><br>
+
+            <div class="noCuenta">
+                ¿No tienes una cuenta? <a routerLink="/registro" class="registro">Regístrate</a>            
+            </div>
+        </div>
+    </div>
+</div>

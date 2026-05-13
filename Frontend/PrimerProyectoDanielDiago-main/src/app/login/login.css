@@ -1,0 +1,94 @@
+.login { 
+  display: flex; 
+  height: 100vh; 
+  font-family: sans-serif; 
+  margin: 0; 
+}
+.logo-img {
+    width: 400px;
+    display: block;
+}
+.lado {
+  flex: 1; 
+  background-color: #3897f0;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  border-radius: 10px;
+
+}
+
+.img-collage { 
+  width: 400px; 
+  display: block; 
+  border-radius: 20px; 
+}
+
+.form-side { 
+  flex: 1; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background: white; 
+}
+
+.auth-box { 
+  width: 350px; 
+  text-align: center; 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.nombreMarca { 
+  font-size: 2.8rem; 
+  margin: 0; 
+  color: #262626; 
+  font-weight: 500;
+}
+
+.login-input {
+  width: 100%; 
+  padding: 12px; 
+  margin-bottom: 10px;
+  border: 1px solid #dbdbdb; 
+  border-radius: 5px; 
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.entrada {
+  width: 100%; 
+  background: #0095f6; 
+  color: white; 
+  border: none;
+  padding: 10px; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  cursor: pointer;
+}
+
+.olvidado {
+  font-weight: bold;
+  text-decoration: none; 
+  color: #262626; 
+}
+
+.registro {
+  font-weight: bold;
+  color: #0095f6; 
+  text-decoration: none;
+}
+
+
+.facebook { 
+  background: none; 
+  border: none; 
+  color: #385185; 
+  font-weight: bold; 
+  cursor: pointer; 
+}

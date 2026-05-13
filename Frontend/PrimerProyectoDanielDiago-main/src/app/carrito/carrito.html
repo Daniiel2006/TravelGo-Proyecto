@@ -1,0 +1,70 @@
+<div class="carrito-page">
+  <div class="container">
+    <div class="carrito-header">
+      <h1><i class="fas fa-shopping-cart"></i> Tu Carrito de Viajes</h1>
+      <p>Revisa tus destinos antes de confirmar la reserva</p>
+    </div>
+
+    <div class="carrito-content" *ngIf="viajesEnCarrito.length > 0; else carritoVacio">
+      <div class="tabla-container">
+        <table class="carrito-tabla">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Información</th>
+              <th>Precio</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let viaje of viajesEnCarrito; let i = index">
+              <td class="col-img">
+                <img [src]="'/fotos/descubrir/' + viaje.nombre.toLowerCase() + '.png'" alt="Viaje">
+              </td>
+              <td class="col-info">
+                <h3>{{ viaje.nombre }}</h3>
+                <p>Pack TravelGo Premium</p>
+              </td>
+              <td class="col-precio">
+                <span class="precio-unitario">{{ viaje.precio }}€</span>
+              </td>
+              <td class="col-accion">
+                <button class="btn-eliminar" (click)="eliminarViaje(i)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="carrito-resumen">
+        <div class="resumen-card">
+          <div class="fila">
+            <span>Subtotal:</span>
+            <span>{{ calcularTotal() }}€</span>
+          </div>
+          <div class="fila total">
+            <span>Total a pagar:</span>
+            <span>{{ calcularTotal() }}€</span>
+          </div>
+          <button class="btn-pagar" (click)="confirmarReserva()">
+            Confirmar y Pagar
+          </button>
+          <button class="btn-vaciar" (click)="vaciarCarrito()">
+            Vaciar carrito
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #carritoVacio>
+      <div class="vacio-box">
+        <i class="fas fa- suitcase-rolling"></i>
+        <h2>Tu carrito está vacío</h2>
+        <p>Aún no has seleccionado ninguna aventura.</p>
+        <button routerLink="/descubrir" class="btn-volver">Explorar Destinos</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

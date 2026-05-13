@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px; 
+    width: auto;
+}
+
+
+.barraSup {
+    background-color: #0095ff; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 20px;
+    height: 60px; 
+}
+
+.barraBuscar input {
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 180px;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.redesSociales img, .redesSociales svg {
+    height: 24px; 
+    width: auto;
+
+}
+
+.redesSociales {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: #000;
+    font-size: 18px ;
+}

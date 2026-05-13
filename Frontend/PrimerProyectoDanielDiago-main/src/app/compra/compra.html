@@ -1,0 +1,45 @@
+<div class="compra-container">
+  <div class="tarjeta-reserva" *ngIf="viaje">
+    
+    <div class="seccion-visual">
+      <img [src]="'/fotos/descubrir/' + destinoId + '.png'" 
+           [alt]="viaje.nombre" 
+           class="foto-viaje">
+      <div class="badge-premium">Pack TravelGo Premium</div>
+    </div>
+
+    <div class="seccion-detalles">
+      <div class="header-info">
+        <span class="categoria">Destino Seleccionado</span>
+        <h1>{{ viaje.nombre }}</h1>
+        <div class="rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <span>(4.8/5)</span>
+        </div>
+      </div>
+
+      <div class="cuerpo-info">
+        <h3><i class="fas fa-list-ul"></i> ¿Qué incluye este viaje?</h3>
+        <div class="descripcion-lista">
+          {{ viaje.descripcion }}
+        </div>
+      </div>
+
+      <div class="footer-info">
+        <div class="precio-tag">
+          <span class="total-label">Precio total</span><br>
+          <span class="monto">{{ viaje.precio }}€</span>
+        </div>
+        <button class="btn-carrito-final" (click)="agregarAlCarrito()">
+          <i class="fas fa-shopping-cart"></i> Reservar ahora
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!viaje" class="pantalla-espera">
+    <div class="spinner"></div>
+    <p>Estamos preparando tu viaje a {{ destinoId }}...</p>
+  </div>
+</div>

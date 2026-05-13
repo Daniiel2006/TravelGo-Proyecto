@@ -1,0 +1,38 @@
+<div class="login">
+    <div class="form-side">
+        <div class="auth-box">
+            <div class="logo">
+                <img src="fotos/inicio/logo.png" alt="Logo TravelGo" class="logo-img">
+            </div>
+
+            <form (submit)="$event.preventDefault()">
+                <input 
+                    type="text" 
+                    name="username"
+                    [(ngModel)]="datosUsuario.username"
+                    placeholder="Nombre de usuario" 
+                    class="login-input">
+
+                <input 
+                    type="email" 
+                    name="email"
+                    [(ngModel)]="datosUsuario.email"
+                    placeholder="Correo electrónico" 
+                    class="login-input">
+                
+                <input 
+                    type="password" 
+                    name="password"
+                    [(ngModel)]="datosUsuario.password"
+                    placeholder="Contraseña" 
+                    class="login-input">
+    
+                <button (click)="registrar()" class="entrar">Registrarte</button>
+            </form>
+
+            <div class="noCuenta">
+                ¿Ya tienes una cuenta? <a routerLink="/login" class="registro">Inicia sesión</a>            
+            </div>
+        </div>
+    </div>
+</div>
