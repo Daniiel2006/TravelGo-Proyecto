@@ -27,6 +27,8 @@ export class AuthService {
   }
 
   obtenerViajePorId(id: string) {
-  return this.http.get(`http://127.0.0.1:8000/api/viajes/detalle/${id}/`);
+  const url = `https://travelgo-proyecto.onrender.com/api/viajes/detalle/${id}/`;
+  console.log('Llamando a la API en:', url); 
+  return this.http.get(url);
 }
 }
