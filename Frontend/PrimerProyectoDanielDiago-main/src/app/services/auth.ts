@@ -15,7 +15,7 @@ export class AuthService {
     return this.http.post(this.apiRegister, usuario);
   }
   login(credenciales: any) {
-    return this.http.post('http://127.0.0.1:8000/api/login/', credenciales);
+  return this.http.post('https://travelgo-proyecto.onrender.com/api/login/', credenciales);
   }
   
   guardarToken(token: string) {
