@@ -1,5 +1,11 @@
-<div class="compra-container">
-  <div class="tarjeta-reserva" *ngIf="viaje">
+<div class="compra-container" *ngIf="!viaje" style="min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;">
+  <i class="fas fa-plane fa-spin" style="font-size: 3rem; margin-bottom: 20px; color: #007bff;"></i>
+  <h2 style="color: #333;">Conectando con aerolíneas...</h2>
+  <p style="color: #666;">Calculando tarifas en tiempo real vía API para {{ destinoId }}</p>
+</div>
+
+<div class="compra-container" *ngIf="viaje">
+  <div class="tarjeta-reserva">
     
     <div class="seccion-visual">
       <img [src]="'/fotos/descubrir/' + destinoId + '.png'" 
@@ -29,7 +35,57 @@
         <div class="precio-tag">
           <span class="total-label">Precio total</span><br>
           <span class="monto">{{ viaje.precio }}€</span>
+          
+          <div class="nota-api" *ngIf="viaje.nota_api" style="font-size: 0.75rem; color: #718096; margin-top: 4px; font-style: italic;">
+            * {{ viaje.nota_api }}
+          </div>
         </div>
+        
+        <button class="btn-carrito-final" (click)="agregarAlCarrito()">
+          <i class="fas fa-shopping-cart"></i> Reservar ahora
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="compra-container" *ngIf="viaje">
+  <div class="tarjeta-reserva">
+    
+    <div class="seccion-visual">
+      <img [src]="'/fotos/descubrir/' + destinoId + '.png'" 
+           [alt]="viaje.nombre" 
+           class="foto-viaje">
+      <div class="badge-premium">Pack TravelGo Premium</div>
+    </div>
+
+    <div class="seccion-detalles">
+      <div class="header-info">
+        <span class="categoria">Destino Seleccionado</span>
+        <h1>{{ viaje.nombre }}</h1>
+        <div class="rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <span>(4.8/5)</span>
+        </div>
+      </div>
+
+      <div class="cuerpo-info">
+        <h3><i class="fas fa-list-ul"></i> ¿Qué incluye este viaje?</h3>
+        <div class="descripcion-lista">
+          {{ viaje.descripcion }}
+        </div>
+      </div>
+
+      <div class="footer-info">
+        <div class="precio-tag">
+          <span class="total-label">Precio total</span><br>
+          <span class="monto">{{ viaje.precio }}€</span>
+          
+          <div class="nota-api" *ngIf="viaje.nota_api" style="font-size: 0.75rem; color: #718096; margin-top: 4px; font-style: italic;">
+            * {{ viaje.nota_api }}
+          </div>
+        </div>
+        
         <button class="btn-carrito-final" (click)="agregarAlCarrito()">
           <i class="fas fa-shopping-cart"></i> Reservar ahora
         </button>

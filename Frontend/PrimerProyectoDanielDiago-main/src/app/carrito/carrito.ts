@@ -25,7 +25,6 @@ export class Carrito implements OnInit {
 
   eliminarViaje(index: number) {
     this.viajesEnCarrito.splice(index, 1);
-    // Guardamos el cambio en el localStorage a través del servicio
     localStorage.setItem('carrito_travelgo', JSON.stringify(this.viajesEnCarrito));
   }
 

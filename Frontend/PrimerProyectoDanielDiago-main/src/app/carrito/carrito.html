@@ -48,8 +48,8 @@
             <span>Total a pagar:</span>
             <span>{{ calcularTotal() }}€</span>
           </div>
-          <button class="btn-pagar" (click)="confirmarReserva()">
-            Confirmar y Pagar
+          <button class="btn-pagar" routerLink="/facturacion">
+          Confirmar y Pagar
           </button>
           <button class="btn-vaciar" (click)="vaciarCarrito()">
             Vaciar carrito

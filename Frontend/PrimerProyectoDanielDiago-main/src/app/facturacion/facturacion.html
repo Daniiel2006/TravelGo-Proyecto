@@ -1,0 +1,74 @@
+<div class="facturacion-layout">
+  <div class="facturacion-wrapper">
+    
+    <div *ngIf="!pagoExitoso && !cargando" class="checkout-grid">
+      
+      <div class="card card-form">
+        <h2 class="section-title">Pasarela de Pago Segura</h2>
+        
+        <form #pagoForm="ngForm" (ngSubmit)="procesarPago(pagoForm)" class="form-pago">
+          <div class="form-group">
+            <label class="form-label">Titular de la Tarjeta</label>
+            <input type="text" name="nombre" [(ngModel)]="tarjetaNombre" required placeholder="Nombre completo del titular" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Número de Tarjeta</label>
+            <input type="text" name="numero" [(ngModel)]="tarjetaNumero" required maxLength="16" placeholder="0000 0000 0000 0000" class="form-control">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="form-label">Expiración</label>
+              <input type="text" name="exp" [(ngModel)]="tarjetaExpiracion" required placeholder="MM/AA" maxLength="5" class="form-control text-center">
+            </div>
+            <div class="form-group flex-1">
+              <label class="form-label">CVV</label>
+              <input type="password" name="cvv" [(ngModel)]="tarjetaCvv" required maxLength="3" placeholder="123" class="form-control text-center">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Confirmar y Pagar {{ totalPrecio }}€
+          </button>
+        </form>
+      </div>
+
+      <div class="card card-summary">
+        <h3 class="summary-title">Resumen de reserva</h3>
+        <div class="summary-details">
+          <div class="summary-row">
+            <span>Tasas de gestión:</span>
+            <span class="bold">0.00€</span>
+          </div>
+          <div class="summary-row">
+            <span>Seguro TravelGo:</span>
+            <span class="badge-success">INCLUIDO</span>
+          </div>
+        </div>
+        <div class="total-container">
+          <span>Total a pagar:</span>
+          <h2 class="total-highlight">{{ totalPrecio }}€</h2>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="cargando" class="card card-status text-center">
+      <div class="spinner"></div>
+      <h2 class="status-title">Conectando con la pasarela bancaria...</h2>
+      <p class="status-text">Por favor, no cierre ni refresque esta ventana. Procesando pago seguro de forma cifrada.</p>
+    </div>
+
+    <div *ngIf="pagoExitoso" class="card card-status text-center">
+      <div class="success-icon">✓</div>
+      <h2 class="status-title">¡Pago Confirmado con Éxito!</h2>
+      <p class="status-text">
+        Tu reserva en TravelGo se ha procesado correctamente. Hemos enviado los billetes electrónicos y el itinerario completo a tu correo electrónico.
+      </p>
+      <button (click)="volverAlInicio()" class="btn btn-secondary">
+        Volver al Panel de Viajes
+      </button>
+    </div>
+
+  </div>
+</div>

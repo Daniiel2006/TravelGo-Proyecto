@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadComponent: () => import('./registro/registro').then(m => m.Registro),
   },
   {
+    path: 'facturacion',
+    loadComponent: () => import('./facturacion/facturacion').then(m => m.FacturacionComponent),
+  },
+  {
     path: '',
     loadComponent: () => import('./layouts/main-layout/main-layout').then(m => m.MainLayout),
     canActivate: [authGuard], 
