@@ -6,16 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiRegister = 'http://localhost:8000/api/register/';
-  private apiLogin = 'http://localhost:8000/api/login/';
+  private apiRegister = 'https://travelgo-proyecto.onrender.com/api/register/';
+  private apiLogin = 'https://travelgo-proyecto.onrender.com/api/login/';
 
   constructor(private http: HttpClient) { }
 
   registrarUsuario(usuario: any): Observable<any> {
     return this.http.post(this.apiRegister, usuario);
   }
+  
   login(credenciales: any) {
-  return this.http.post('https://travelgo-proyecto.onrender.com/api/login/', credenciales);
+    return this.http.post(this.apiLogin, credenciales);
   }
   
   guardarToken(token: string) {
@@ -27,8 +28,8 @@ export class AuthService {
   }
 
   obtenerViajePorId(id: string) {
-  const url = `https://travelgo-proyecto.onrender.com/api/viajes/detalle/${id}/`;
-  console.log('Llamando a la API en:', url); 
-  return this.http.get(url);
-}
+    const url = `https://travelgo-proyecto.onrender.com/api/viajes/detalle/${id}/`;
+    console.log('Llamando a la API en:', url); 
+    return this.http.get(url);
+  }
 }
